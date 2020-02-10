@@ -27,6 +27,7 @@ async function connectDevice() {
     await characteristic.writeValue(encoder.encode("/T5\n"));
     document.getElementById('initial-screen').style.display = 'none';
     document.getElementById('when-connected').style.display = 'block';
+    messageTextField.focus();
     setInterval(_display, 100);
 }
 
