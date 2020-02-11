@@ -18,15 +18,21 @@
 
 <div class="starter-template">
     <h1>PeekSmith web application</h1>
-    <p class="lead">
-        <div class="form-group" id="initial-screen">
+    <div class="content" id="initial-screen">
+        <div class="form-group">
             <button id="button-connect" type="submit" class="btn btn-primary">Connect to device</button>
         </div>
-        <div class="form-group" id="when-connected" style="display: none;">
+    </div>
+    <div class="content" id="when-connected" style="display: none;">
+        <div class="form-group">
             <label for="textarea-message">Message</label>
-            <textarea class="form-control" id="textarea-message" rows="3"></textarea>
+            <textarea class="form-control" id="textarea-message" rows="3" placeholder="Start typing your message"></textarea>
         </div>
-    </p>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="checkbox-wrap-text">
+            <label class="form-check-label" for="checkbox-wrap-text">Wrap text</label>
+        </div>
+    </div>
 </div>
 
 <script src="js/peeksmith.js"></script>
