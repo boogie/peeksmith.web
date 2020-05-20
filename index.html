@@ -12,7 +12,10 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">PeekSmith</a>
+    <a class="navbar-brand" href="#">
+        <span id="device-name">PeekSmith</span>
+        <small id="device-voltage"></small>
+    </a>
 </nav>
 <main role="main" class="container">
 
@@ -23,15 +26,55 @@
             <button id="button-connect" type="submit" class="btn btn-primary">Connect to device</button>
         </div>
     </div>
-    <div class="content" id="when-connected" style="display: none;">
-        <div class="form-group">
-            <label for="textarea-message">Message</label>
-            <textarea class="form-control" id="textarea-message" rows="3" placeholder="Start typing your message"></textarea>
+    <div class="content" id="connecting-screen" style="display: none;">
+        <div class="alert alert-primary" role="alert">
+            Connecting...
+          </div>
+    </div>
+    <div class="content" id="connected-screen" style="display: none;">
+        <!--
+        <ul class="nav nav-tabs" id="tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#" id="tab-message">Message</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="tab-draw">Draw</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="tab-billboard">Billboard</a>
+            </li>
+        </ul>
+        -->
+        <div class="tab-content" id="content-message">
+            <div class="form-group">
+                <label for="textarea-message">Message</label>
+                <textarea class="form-control" id="textarea-message" rows="3" placeholder="Start typing your message"></textarea>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="checkbox-wrap-text">
+                <label class="form-check-label" for="checkbox-wrap-text">Wrap text</label>
+            </div>
         </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="checkbox-wrap-text">
-            <label class="form-check-label" for="checkbox-wrap-text">Wrap text</label>
+        <!--
+        <div class="tab-content" id="content-draw">
+            <div class="form-group">
+                <label for="textarea-code">Code to draw</label>
+                <textarea class="form-control" id="textarea-code" rows="3" placeholder="Write a code to draw something"></textarea>
+            </div>
+            <div class="form-group">
+                <button id="button-draw">Draw</button>
+            </div>
         </div>
+        <div class="tab-content" id="content-billboard">
+            <div class="form-group">
+                <label for="textarea-billboard">Messages</label>
+                <textarea class="form-control" id="textarea-billboard" rows="10" placeholder="Type your messages"></textarea>
+            </div>
+            <div class="form-group form-check">
+                <input id="input-billboard-timing" value="10"> seconds
+            </div>
+        </div>
+        -->
     </div>
 </div>
 
