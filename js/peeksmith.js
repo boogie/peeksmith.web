@@ -104,10 +104,7 @@ class PeekSmithDevice {
         await this._sendString('/T5\n');
         this._queue.unshift('/?b\n');
         this._queue.unshift('#Welcome\n');
-        this._queue.unshift('/VL511\n~.\n');
-        setTimeout(()=>{
-            this._queue.unshift('/VL211\n~.\n');
-        }, 1500);
+        this.testVibrations();
         this._displayInterval = setInterval(this._display.bind(this), 100);
         if (this._hardwareVersion >= 2 ) {
             this._batteryInterval = setInterval(this._queryBatteryInfo.bind(this), 1000 * 30);
@@ -263,6 +260,12 @@ class PeekSmithDevice {
         }
         send.call(this);
     }    
+    testVibrations() {
+        this._queue.unshift('/VL511\n~..\n');
+        setTimeout(()=>{
+            this._queue.unshift('/VL211\n~....\n');
+        }, 1500);
+    }
 }
 
 const screens = {
@@ -273,6 +276,7 @@ const screens = {
 const deviceName = document.getElementById('device-name');
 const deviceVoltage = document.getElementById('device-voltage');
 const connectButton = document.getElementById('button-connect');
+const testVibrationsButton = document.getElementById('button-test-vibrations');
 const drawButton = document.getElementById('button-draw');
 const messageTextField = document.getElementById('textarea-message');
 const codeTextField = document.getElementById('textarea-code');
@@ -316,6 +320,9 @@ checkboxWrapText.addEventListener('click', () => {
     const message = messageTextField.value;
     const wrap = checkboxWrapText.checked;
     display.displayText(message, wrap);
+});
+testVibrationsButton.addEventListener('click', () => {
+    display.testVibrations();
 });
 drawButton.addEventListener('click', () => {
     const code = codeTextField.value;
