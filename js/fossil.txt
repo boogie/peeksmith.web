@@ -1,0 +1,17 @@
+
+write   03 00 08 00 00 00 00 1b 00 00 00 1b 00 00 00 // OPEN file 0x0800
+
+notify  _3 00 08 00 00
+
+                                               /- input for calculateCRC32c --\
+write   00 00 08 02 00 00 00 00 00 0b 00 00 00 0c 00 08 8e 12 f0 5e ec 00 14 00 7F B1 0C 09
+                                                        \-epoch---/ \-ms/ \-tz/ \-crc32---/
+
+notify  88 00 08 00 1b 00 00 00 98 cc 15 d1
+
+write   04 00 08
+
+notify  8a 00 08 00 04 30 75 00 00
+
+notify  84 00 08 00
+

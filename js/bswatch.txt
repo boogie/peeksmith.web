@@ -1,0 +1,3 @@
+
+
+'  6F 04 71 07 00 YY YY MM DD hh mm ss 8F  '

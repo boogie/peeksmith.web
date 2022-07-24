@@ -5,3 +5,43 @@
 .content {
     padding: 10px 0;
 }
+
+#log {
+    border: 0;
+    margin: 0;
+    padding: 4px;
+    font-size: 0.9em;
+    font-family: 'Courier New', Courier, monospace;
+    background: #000;
+    color: #fff;
+}
+#device-table table {
+    margin: 10px 0;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    background: #444;
+}
+#device-table table th {
+    text-align: left;
+    border: 1px solid #000;
+    color: #fff;
+    padding: 10px;
+}
+#device-table table td {
+    padding: 10px;
+    border: 1px solid #000;
+    text-align: left;
+    color: #fff;
+}
+#log p {
+    margin: 0;
+}
+#log p .time {
+    color: #aaa;
+}
+#log p .message {
+    color: #fff;
+}
+#log p.error .message {
+    color: #f88;
+}

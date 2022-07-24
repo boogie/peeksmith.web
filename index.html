@@ -13,7 +13,7 @@
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#">
-        <span id="device-name">PeekSmith</span>
+        <span id="device-name">Device Console</span>
         <small id="device-voltage"></small>
     </a>
 </nav>
@@ -23,7 +23,17 @@
     <h1>PeekSmith web application</h1>
     <div class="content" id="initial-screen">
         <div class="form-group">
-            <button id="button-connect" type="submit" class="btn btn-primary">Connect to device</button>
+            <button id="button-connect" type="submit" class="btn btn-primary">Connect to PeekSmith</button>
+            <button id="button-sbwatch-connect" type="submit" class="btn btn-primary">Connect to SB Watch</button>
+            <button id="button-espyon-connect" type="submit" class="btn btn-primary">Connect to Espyon</button>
+            <button id="button-ghostmove-connect" type="submit" class="btn btn-primary">Connect to GhostMove</button>
+            <button id="button-spotted-connect" type="submit" class="btn btn-primary">Connect to Spotted</button>
+            <button id="button-insight-connect" type="submit" class="btn btn-primary">Connect to Insight</button>
+            <button id="button-secondsight-connect" type="submit" class="btn btn-primary">Connect to Second Sight</button>
+            <button id="button-pitataboard-connect" type="submit" class="btn btn-primary">Connect to Pitata Board</button>
+            <button id="button-mindbuster-connect" type="submit" class="btn btn-primary">Connect to Labco Mindbuster</button>
+            <button id="button-isknslate-connect" type="submit" class="btn btn-primary">Connect to ISKN Slate</button>
+            <button id="button-bambooslate-connect" type="submit" class="btn btn-primary">Connect to Bamboo Slate</button>
         </div>
     </div>
     <div class="content" id="connecting-screen" style="display: none;">
@@ -32,54 +42,88 @@
           </div>
     </div>
     <div class="content" id="connected-screen" style="display: none;">
-        <!--
-        <ul class="nav nav-tabs" id="tabs">
-            <li class="nav-item">
-                <a class="nav-link active" href="#" id="tab-message">Message</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" id="tab-draw">Draw</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" id="tab-billboard">Billboard</a>
-            </li>
-        </ul>
-        -->
-        <div class="tab-content" id="content-message">
-            <div class="form-group">
-                <label for="textarea-message">Message</label>
-                <textarea class="form-control" id="textarea-message" rows="3" placeholder="Start typing your message"></textarea>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="textarea-message">Message</label>
+                        <textarea class="form-control" id="textarea-message" cols="30" rows="10" placeholder="Start typing your message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button id="button-test-vibrations" class="btn btn-primary">Test vibrations</button>
+                    </div>
+                    <div class="form-group">
+                        <div class="btn-group" role="group">
+                            <button id="button-ps-align-left" type="button" class="button-ps-align btn btn-primary">Left</button>
+                            <button id="button-ps-align-center" type="button" class="button-ps-align btn btn-primary active">Middle</button>
+                            <button id="button-ps-align-right" type="button" class="button-ps-align btn btn-primary">Right</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="btn-group" role="group">
+                            <button id="button-ps-font-au" type="button" class="button-ps-font btn btn-primary active">Auto</button>
+                            <button id="button-ps-font-16" type="button" class="button-ps-font btn btn-primary">16</button>
+                            <button id="button-ps-font-24" type="button" class="button-ps-font btn btn-primary">24</button>
+                            <button id="button-ps-font-32" type="button" class="button-ps-font btn btn-primary">32</button>
+                            <button id="button-ps-font-64" type="button" class="button-ps-font btn btn-primary">64</button>
+                            <button id="button-ps-font-roboto" type="button" class="button-ps-font btn btn-primary">Roboto</button>
+                            <button id="button-ps-font-seven44" type="button" class="button-ps-font btn btn-primary">Seven 44</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="btn-group" role="group">
+                            <button id="button-ps-long-f" type="button" class="button-ps-long btn btn-primary active">Char Wrap</button>
+                            <button id="button-ps-long-t" type="button" class="button-ps-long btn btn-primary">Word Wrap</button>
+                            <button id="button-ps-long-s" type="button" class="button-ps-long btn btn-primary">Scroll</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Scroll Speed (1 - 255)</span>
+                            <input id="input-scroll-speed" min="1" max="255" type="number" class="form-control" placeholder="Scroll speed">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="textarea-code">Code</label>
+                        <textarea class="form-control" id="textarea-code" cols="30" rows="10" placeholder="Start typing your code"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button id="button-run-code" class="btn btn-secondary">Run</button>
+                    </div>
+                </div>
             </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="checkbox-wrap-text">
-                <label class="form-check-label" for="checkbox-wrap-text">Wrap text</label>
+            <div class="row">
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="checkbox-wrap-text">
+                    <label class="form-check-label" for="checkbox-wrap-text">Wrap text</label>
+                </div>
             </div>
-            <div class="form-group">
-                <button id="button-test-vibrations" class="btn btn-secondary">Test vibrations</button>
+            <div class="row">
+                <div class="form-group">
+                    <button id="button-start-discovery" class="btn btn-secondary">Start discovery</button>
+                </div>
+                <div class="form-group">
+                    <button id="button-list-peers" class="btn btn-secondary">List peers</button>
+                </div>
+                <div id="device-table"></div>
+            </div>
+            <div id="board-canvas-wrapper">
+                <canvas width="420" height="600" id="board-canvas"></canvas>
+            </div>            
+            <div class="row">
+                <div class="col">
+                    <label>Logs</label>
+                    <div id="log"></div>
+                </div>
             </div>
         </div>
-        <!--
-        <div class="tab-content" id="content-draw">
-            <div class="form-group">
-                <label for="textarea-code">Code to draw</label>
-                <textarea class="form-control" id="textarea-code" rows="3" placeholder="Write a code to draw something"></textarea>
-            </div>
-            <div class="form-group">
-                <button id="button-draw">Draw</button>
-            </div>
-        </div>
-        <div class="tab-content" id="content-billboard">
-            <div class="form-group">
-                <label for="textarea-billboard">Messages</label>
-                <textarea class="form-control" id="textarea-billboard" rows="10" placeholder="Type your messages"></textarea>
-            </div>
-            <div class="form-group form-check">
-                <input id="input-billboard-timing" value="10"> seconds
-            </div>
-        </div>
-        -->
     </div>
 </div>
 
+<script src="js/ps3fwdata.js"></script>
+<script src="js/cbor.js"></script>
+<script src="js/devices.js"></script>
 <script src="js/peeksmith.js"></script>
 </main>
